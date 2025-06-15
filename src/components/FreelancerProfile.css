@@ -1,0 +1,213 @@
+.freelancer-profile {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-box {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+  color: #007bff;
+}
+
+.profile-box h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;        /* allows wrapping on smaller screens */
+  gap: 10px;              /* space between tags */
+  margin-top: 10px;
+}
+
+.skill-tag {
+  background-color: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+
+.service-box h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.service-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.service-card .description {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.features li {
+  margin-bottom: 8px;
+  color: #0a8754; /* ✅ Green text */
+  font-weight: 600;
+  position: relative;
+  padding-left: 24px;
+}
+
+.features li::before {
+  color: #0a8754; /* ✅ Green tick */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0a8754;
+}
+
+.hire-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.hire-btn:hover {
+  background-color: #1d4ed8;
+}
+/* Add to FreelancerProfile.css */
+.proceed-btn {
+  margin-left: 16px;
+  background: #facc15;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.proceed-btn:hover {
+  background: #ea9008;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .profile-header h1 {
+    font-size: 22px;
+  }
+
+  .skill-tag {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .hire-btn {
+    width: 100%;
+  }
+}
+
+.payment-success-popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.payment-success-popup .popup-content {
+  background: #fff;
+  padding: 32px 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 24px #0002;
+}
+.payment-success-popup h2 {
+  color: #16a34a;
+  margin-bottom: 12px;
+}
+.payment-success-popup button {
+  margin-top: 18px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.success-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.success-icon {
+  color: #16a34a;
+  font-size: 3.5rem;
+  background: #e7fbe9;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 2px 8px #16a34a22;
+}

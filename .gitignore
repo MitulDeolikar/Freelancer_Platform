@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# .gitignore
+node_modules/
+.env
+.env.local
+.env.development
+.env.production
+.DS_Store
+/build

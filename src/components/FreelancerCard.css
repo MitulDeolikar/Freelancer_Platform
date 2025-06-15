@@ -1,0 +1,143 @@
+.freelancer-card {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f0f0f0;
+}
+
+.freelancer-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  /* Gradient will be set inline for random color */
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px #0001;
+  transition: background 0.3s;
+}
+
+.freelancer-info {
+  flex: 1;
+}
+
+.freelancer-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.freelancer-role {
+  color: #6366f1;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.freelancer-desc {
+  margin: 16px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.freelancer-tags {
+  margin-bottom: 16px;
+}
+
+.freelancer-tag {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #3730a3;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.freelancer-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #16a34a;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 40px 0;
+}
+/* Add to FreelancerCard.css */
+.hire-btn {
+  margin-top: 12px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.hire-btn:hover {
+  background: #4338ca;
+}
+
+/* Responsive styles */
+
+@media (max-width: 600px) {
+  .freelancer-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  .freelancer-avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .freelancer-card {
+    padding: 0.7rem;
+    min-width: 0;
+    max-width: 78.5vw;
+    
+  }
+  .freelancer-avatar {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+  .freelancer-info h3 {
+    font-size: 1rem;
+    word-break: break-word;
+  }
+  .freelancer-role {
+    font-size: 0.95rem;
+  }
+  .freelancer-desc {
+    font-size: 0.89rem;
+    margin: 10px 0;
+  }
+  .freelancer-tag {
+    font-size: 12px;
+    padding: 3px 8px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+  }
+  .freelancer-price {
+    font-size: 1rem;
+  }
+}

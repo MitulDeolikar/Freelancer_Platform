@@ -1,0 +1,35 @@
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0001;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #f0f0f0;
+}
+.service-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.service-description {
+  color: #444;
+  margin-bottom: 1rem;
+}
+.service-skills {
+  margin-bottom: 1rem;
+}
+.service-skill {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #3730a3;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 14px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+.service-price {
+  color: #16a34a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}

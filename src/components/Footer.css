@@ -1,0 +1,121 @@
+.footer {
+  background: linear-gradient(to right, #111827,#04306e,#111827);
+  color: #e2e8f0;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* changed from space-evenly to space-between */
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* added padding to push content away from screen edges */
+}
+
+.footer-section {
+  flex: 1 1 220px; /* grow, shrink, basis */
+  margin-right: 20px;
+  max-width: 250px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.logo-circle {
+  background: linear-gradient(to right, #3b82f6, #10b981);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.logo-text {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+}
+
+.logo-text .logo-dot {
+  font-weight: 800;
+  font-size: 28px;
+  color: #facc15;
+}
+
+.footer-section h4 {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  color: #cbd5e1;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 18px;
+  margin-top: 12px;
+  color: #cbd5e1;
+}
+
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  margin-top: 30px;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: #94a3b8;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* 🔁 Responsive Styling */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .footer-section {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

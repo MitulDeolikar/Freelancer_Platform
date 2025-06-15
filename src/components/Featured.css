@@ -1,0 +1,151 @@
+/* src/components/Featured.css */
+
+.featured-section {
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #efeeee;
+}
+
+.featured-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.featured-subtitle {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.freelancer-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px 20px 14px 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: unset;
+  height: auto;
+}
+
+.freelancer-card:hover {
+  transform: translateY(-5px);
+}
+
+.freelancer-main {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.freelancer-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.freelancer-info {
+  flex: 1;
+  text-align: left;
+}
+
+.freelancer-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.freelancer-title {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.freelancer-rating {
+  font-size: 16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.freelancer-rating .stars {
+  color: #f59e0b;
+  font-size: 20px;
+}
+
+.freelancer-rating .review-text {
+  color: #3c0bea;
+  font-size: 14px;
+}
+
+.freelancer-rate {
+  color: #059669;
+  font-weight: 630;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.profile-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background-color 0.2s;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+
+.profile-btn:hover {
+  background-color: #1e40af;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .freelancer-card {
+    padding: 18px 10px 14px 10px;
+    min-height: 0;
+  }
+  .freelancer-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .freelancer-info {
+    text-align: center;
+  }
+  .profile-btn {
+    width: 100%;
+    margin-top: 16px;
+  }
+}
