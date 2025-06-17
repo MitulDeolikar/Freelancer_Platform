@@ -17,10 +17,10 @@ const FreelancerProfile = () => {
     useEffect(() => {
         const fetchProfileAndServices = async () => {
             try {
-                const userRes = await fetch(`http://localhost:5000/api/auth/user/${id}`);
+                const userRes = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/user/${id}`);
                 const userData = await userRes.json();
 
-                const servicesRes = await fetch(`http://localhost:5000/api/services?user=${id}`);
+                const servicesRes = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services?user=${id}`);
                 const servicesData = await servicesRes.json();
 
                 setUser(userData);
@@ -36,7 +36,7 @@ const FreelancerProfile = () => {
 
     const handlePayment = async (price, serviceId) => {
         try {
-            const res = await fetch('http://localhost:5000/api/payment/order', {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/order`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ amount: price, currency: 'INR', receipt: serviceId })
@@ -51,7 +51,7 @@ const FreelancerProfile = () => {
                 description: "Service Payment",
                 order_id: data.id,
                 handler: function (response) {
-                    fetch('http://localhost:5000/api/payment/record', {
+                    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/record`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

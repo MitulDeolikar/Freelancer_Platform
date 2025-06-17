@@ -16,8 +16,7 @@ app.use('/api/services', serviceRoutes);
 const paymentRoutes = require('./routes/payment');
 app.use('/api/payment', paymentRoutes);
 
-console.log("KEY_ID:", process.env.REACT_APP_RAZORPAY_KEY_ID);
-console.log("KEY_SECRET:", process.env.REACT_APP_RAZORPAY_KEY_SECRET);
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => app.listen(5000, () => console.log('Server running')))
   .catch(err => console.log(err));

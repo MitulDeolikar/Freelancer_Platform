@@ -18,13 +18,13 @@ const OrdersPage = () => {
             return;
         }
 
-        fetch('http://localhost:5000/api/auth/me', {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/me`, {
             headers: { Authorization: 'Bearer ' + token }
         })
             .then(res => res.json())
             .then(userData => {
                 setUser(userData);
-                return fetch('http://localhost:5000/api/payment/my-orders', {
+                return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/my-orders`, {
                     headers: { Authorization: 'Bearer ' + token }
                 });
             })

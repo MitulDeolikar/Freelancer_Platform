@@ -38,7 +38,7 @@ const Featured = () => {
 
   useEffect(() => {
     // Fetch payments and aggregate by paidTo
-    fetch('http://localhost:5000/api/payment/top-freelancers')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/top-freelancers`)
       .then(res => res.json())
       .then(data => setTopFreelancers(data))
       .catch(() => setTopFreelancers([]));

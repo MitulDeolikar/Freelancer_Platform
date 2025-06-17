@@ -63,7 +63,7 @@ const ProfileServices = () => {
           setLoadingProfile(false);
           return;
         }
-        const res = await fetch('http://localhost:5000/api/auth/profile', {
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -94,7 +94,7 @@ const ProfileServices = () => {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5000/api/services', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ const ProfileServices = () => {
     if (!window.confirm('Are you sure you want to delete this service?')) return;
     try {
       const token = localStorage.getItem('token');
-      const res = await fetch(`http://localhost:5000/api/services/${serviceId}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services/${serviceId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -146,7 +146,7 @@ const ProfileServices = () => {
       const fetchServices = async () => {
         const token = localStorage.getItem('token');
         try {
-          const res = await fetch('http://localhost:5000/api/services/my', {
+          const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services/my`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           const data = await res.json();

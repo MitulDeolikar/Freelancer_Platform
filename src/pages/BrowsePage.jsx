@@ -27,7 +27,7 @@ const BrowsePage = () => {
     // Fetch logged-in user info
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:5000/api/auth/profile', {
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/profile`, {
         headers: { Authorization: 'Bearer ' + token }
       })
         .then(res => res.json())
@@ -39,7 +39,7 @@ const BrowsePage = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/services');
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/services`);
         const data = await res.json();
         setServices(data);
       } catch {
@@ -109,7 +109,7 @@ const BrowsePage = () => {
           </select>
         </div>
 
-        {/* ✅ Freelancer Cards */}
+
         <div className="card-list">
           {loading ? (
             <p>Loading services...</p>

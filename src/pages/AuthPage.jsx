@@ -29,8 +29,8 @@ const AuthPage = () => {
         try {
             const res = await fetch(
                 isLogin
-                    ? 'http://localhost:5000/api/auth/login'
-                    : 'http://localhost:5000/api/auth/register',
+                    ? `${process.env.REACT_APP_BACKEND_URL}/api/auth/login`
+                    : `${process.env.REACT_APP_BACKEND_URL}/api/auth/register`,
                 {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
