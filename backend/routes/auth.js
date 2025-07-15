@@ -56,7 +56,7 @@ router.get('/user/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+
 
 // Add to backend/routes/auth.js
 router.get('/me', async (req, res) => {
@@ -71,3 +71,6 @@ router.get('/me', async (req, res) => {
     res.status(401).json({ msg: 'Invalid token' });
   }
 });
+console.log("Auth router loaded");
+
+module.exports = router;

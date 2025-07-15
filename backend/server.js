@@ -19,12 +19,15 @@ app.use(cors({
 app.options('*', cors());
 app.use(express.json());
 
+console.log("Registering authRoutes at /api/auth");
 app.use('/api/auth', authRoutes);
 
 const serviceRoutes = require('./routes/services');
+console.log("Registering serviceRoutes at /api/services");
 app.use('/api/services', serviceRoutes);
 
 const paymentRoutes = require('./routes/payment');
+console.log("Registering paymentRoutes at /api/payment");
 app.use('/api/payment', paymentRoutes);
 
 

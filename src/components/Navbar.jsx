@@ -55,6 +55,7 @@ const Navbar = () => {
         <li><Link to="/freelancers" className={location.pathname === "/freelancers" ? "active" : ""} onClick={closeMenu}>Browse Freelancers</Link></li>
         <li><Link to="/dashboard" className={location.pathname === "/dashboard" ? "active" : ""} onClick={closeMenu}>My Dashboard</Link></li>
         <li><Link to="/orders" className={location.pathname === "/orders" ? "active" : ""} onClick={closeMenu}>Orders</Link></li>
+        <li><Link to="/wallet" className={location.pathname === "/wallet" ? "active" : ""} onClick={closeMenu}>Wallet</Link></li>
         <li className="mobile-login-btn">
           {token ? (
             <button className="enter-btn" onClick={handleLogout}>Logout</button>

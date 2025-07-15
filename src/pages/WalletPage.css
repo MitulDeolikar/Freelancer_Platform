@@ -1,0 +1,67 @@
+.wallet-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.wallet-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.wallet-loading,
+.wallet-empty {
+  text-align: center;
+  color: #777;
+  margin-top: 2rem;
+}
+
+.wallet-login-prompt {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.wallet-login-btn {
+  margin-top: 1rem;
+  background: #6366f1;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.wallet-summary {
+  background: #f0f4ff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.wallet-total {
+  font-size: 2rem;
+  color: #10b981;
+  font-weight: bold;
+}
+
+.wallet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wallet-card {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.wallet-info p {
+  margin: 0.4rem 0;
+  color: #333;
+}
