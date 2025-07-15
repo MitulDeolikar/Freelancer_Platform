@@ -12,40 +12,48 @@ const WalletPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    setUser(null);
-    setLoading(false);
-    return;
-  }
-
-  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/me`, {
-    headers: { Authorization: 'Bearer ' + token }
-  })
-    .then(res => res.json())
-    .then(userData => {
-      setUser(userData);
-      return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/my-orders`, {
-        headers: { Authorization: 'Bearer ' + token }
-      });
-    })
-    .then(res => res.json())
-    .then(orderData => {
-      const myEarnings = orderData.filter(order => order.paidTo?._id === user?._id);
-      setEarnings(myEarnings);
-      const total = myEarnings.reduce((sum, order) => sum + order.amount, 0);
-      setTotalEarnings(total);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      setUser(null);
       setLoading(false);
+      return;
+    }
+
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/me`, {
+      headers: { Authorization: 'Bearer ' + token }
     })
-    .catch(() => setLoading(false));
-}, [user?._id]);
+      .then(res => res.json())
+      .then(userData => {
+        setUser(userData);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!user || !user._id || !token) return;
+
+    setLoading(true);
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/my-orders`, {
+      headers: { Authorization: 'Bearer ' + token }
+    })
+      .then(res => res.json())
+      .then(orderData => {
+        const myEarnings = orderData.filter(order => order.paidTo?._id === user._id);
+        setEarnings(myEarnings);
+        const total = myEarnings.reduce((sum, order) => sum + order.amount, 0);
+        setTotalEarnings(total);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [user]);
 
   return (
     <div>
       <Navbar />
       <div className="wallet-page">
         <h2 className="wallet-title">My Wallet</h2>
-
         {loading ? (
           <p className="wallet-loading">Loading...</p>
         ) : !user ? (
@@ -61,7 +69,6 @@ const WalletPage = () => {
               <h3>Total Earnings:</h3>
               <span className="wallet-total">₹{totalEarnings}</span>
             </div>
-
             {earnings.length === 0 ? (
               <p className="wallet-empty">No one has hired you yet.</p>
             ) : (
