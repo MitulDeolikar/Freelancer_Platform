@@ -12,33 +12,33 @@ const WalletPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      setUser(null);
-      setLoading(false);
-      return;
-    }
+  const token = localStorage.getItem('token');
+  if (!token) {
+    setUser(null);
+    setLoading(false);
+    return;
+  }
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/me`, {
-      headers: { Authorization: 'Bearer ' + token }
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/auth/me`, {
+    headers: { Authorization: 'Bearer ' + token }
+  })
+    .then(res => res.json())
+    .then(userData => {
+      setUser(userData);
+      return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/my-orders`, {
+        headers: { Authorization: 'Bearer ' + token }
+      });
     })
-      .then(res => res.json())
-      .then(userData => {
-        setUser(userData);
-        return fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/my-orders`, {
-          headers: { Authorization: 'Bearer ' + token }
-        });
-      })
-      .then(res => res.json())
-      .then(orderData => {
-        const myEarnings = orderData.filter(order => order.paidTo?._id === user?._id);
-        setEarnings(myEarnings);
-        const total = myEarnings.reduce((sum, order) => sum + order.amount, 0);
-        setTotalEarnings(total);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-  }, []);
+    .then(res => res.json())
+    .then(orderData => {
+      const myEarnings = orderData.filter(order => order.paidTo?._id === user?._id);
+      setEarnings(myEarnings);
+      const total = myEarnings.reduce((sum, order) => sum + order.amount, 0);
+      setTotalEarnings(total);
+      setLoading(false);
+    })
+    .catch(() => setLoading(false));
+}, [user?._id]);
 
   return (
     <div>
