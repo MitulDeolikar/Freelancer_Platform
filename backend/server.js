@@ -5,7 +5,18 @@ const cors = require('cors');
 const authRoutes = require('./routes/auth');
 
 const app = express();
-app.use(cors());
+const allowedOrigins = [
+  'https://your-buddy.netlify.app', // Netlify frontend
+  'http://localhost:3000'           // Local development
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
+
+// Handle preflight requests for all routes
+app.options('*', cors());
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
