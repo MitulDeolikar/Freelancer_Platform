@@ -35,16 +35,13 @@ const WalletPage = () => {
         if (!user || !user._id || !token) return;
 
         setLoading(true);
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/my-orders`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/api/payment/my-earnings`, {
             headers: { Authorization: 'Bearer ' + token }
         })
             .then(res => res.json())
             .then(orderData => {
-                const myEarnings = orderData.filter(
-                    order => order.paidTo?._id?.toString() === user._id?.toString()
-                );
-                setEarnings(myEarnings);
-                const total = myEarnings.reduce((sum, order) => sum + order.amount, 0);
+                setEarnings(orderData);
+                const total = orderData.reduce((sum, order) => sum + order.amount, 0);
                 setTotalEarnings(total);
                 setLoading(false);
             })
