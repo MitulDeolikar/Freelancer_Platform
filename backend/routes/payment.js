@@ -76,6 +76,18 @@ router.get('/my-orders', auth, async (req, res) => {
   }
 });
 
+router.get('/my-earnings', auth, async (req, res) => {
+  try {
+    const earnings = await Payment.find({ paidTo: req.userId })
+      .populate('service')
+      .populate('paidBy', 'firstName lastName email');
+    res.json(earnings);
+  } catch (err) {
+    res.status(500).json({ msg: 'Could not fetch earnings' });
+  }
+});
+
+
 router.get('/top-freelancers', async (req, res) => {
   try {
     const top = await Payment.aggregate([
