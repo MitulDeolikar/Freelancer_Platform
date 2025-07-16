@@ -251,3 +251,6 @@
     justify-content: center;
   }
 }
+body, #root {
+  overflow: visible !important;
+}
