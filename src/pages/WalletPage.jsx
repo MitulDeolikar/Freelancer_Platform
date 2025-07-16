@@ -39,14 +39,19 @@ const WalletPage = () => {
             headers: { Authorization: 'Bearer ' + token }
         })
             .then(res => res.json())
-            .then(orderData => {
-                setEarnings(orderData);
-                const total = orderData.reduce((sum, order) => sum + order.amount, 0);
+            .then(data => {
+                console.log("Fetched earnings:", data); // ✅ Debug log
+                setEarnings(data);
+                const total = data.reduce((sum, payment) => sum + payment.amount, 0);
                 setTotalEarnings(total);
                 setLoading(false);
             })
-            .catch(() => setLoading(false));
+            .catch(err => {
+                console.error("Earnings fetch failed:", err);
+                setLoading(false);
+            });
     }, [user]);
+
 
     return (
         <div>

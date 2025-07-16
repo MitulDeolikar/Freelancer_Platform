@@ -78,11 +78,12 @@ router.get('/my-orders', auth, async (req, res) => {
 
 router.get('/my-earnings', auth, async (req, res) => {
   try {
-    const earnings = await Payment.find({ paidTo: req.userId })
+    const payments = await Payment.find({ paidTo: req.userId })
       .populate('service')
       .populate('paidBy', 'firstName lastName email');
-    res.json(earnings);
+    res.json(payments);
   } catch (err) {
+    console.error("Error fetching earnings:", err);
     res.status(500).json({ msg: 'Could not fetch earnings' });
   }
 });
